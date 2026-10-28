@@ -39,6 +39,16 @@ export const APP_ROUTES: Routes = [
   },
   // Standalone pages — all import from same barrel so they share one chunk
   {
+    path: 'focus',
+    loadComponent: () =>
+      import('./routes/pages.routes').then((m) => m.FocusModePageComponent),
+    data: {
+      page: 'focus-mode',
+      featureConfigKey: 'isFocusModeEnabled',
+    },
+    canActivate: [FeatureEnabledGuard, FocusOverlayOpenGuard],
+  },
+  {
     path: 'config',
     loadComponent: () =>
       import('./routes/pages.routes').then((m) => m.ConfigPageComponent),

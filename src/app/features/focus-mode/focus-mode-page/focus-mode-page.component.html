@@ -1,0 +1,13 @@
+<div class="focus-page">
+  @switch (activePage()) {
+    @case (FocusScreen.Main) {
+      <focus-mode-main @warpIn></focus-mode-main>
+    }
+    @case (FocusScreen.SessionDone) {
+      <focus-mode-session-done @warpIn></focus-mode-session-done>
+    }
+    @case (FocusScreen.Break) {
+      <focus-mode-break @warpIn></focus-mode-break>
+    }
+  }
+</div>

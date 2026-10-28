@@ -116,6 +116,9 @@ export class MagicNavConfigService {
   private readonly isSearchEnabled = computed(
     () => this._configService.appFeatures().isSearchEnabled,
   );
+  private readonly isFocusModeEnabled = computed(
+    () => this._configService.appFeatures().isFocusModeEnabled,
+  );
   readonly areInitialTreesReady = computed(() => {
     const visibleProjects = this._visibleProjects();
     const tags = this._tags();
@@ -148,6 +151,9 @@ export class MagicNavConfigService {
   // Main navigation configuration
   readonly navConfig = computed<NavConfig>(() => ({
     items: [
+      // Focus is the primary workflow, ahead of the work contexts.
+      ...this._buildFocusModeItems(),
+
       // Work Context Items
       ...this._buildWorkContextItems(),
 
@@ -369,6 +375,21 @@ export class MagicNavConfigService {
   }
 
   // Private helpers
+  private _buildFocusModeItems(): NavItem[] {
+    if (!this.isFocusModeEnabled()) return [];
+
+    return [
+      {
+        type: 'route',
+        id: 'pomodoro',
+        label: T.GCF.FOCUS_MODE.TITLE,
+        icon: NAV_SECTION_ICON.FOCUS_MODE,
+        route: '/focus',
+        featureConfigKey: 'isFocusModeEnabled',
+      },
+    ];
+  }
+
   private _buildWorkContextItems(): NavItem[] {
     const items: NavItem[] = [];
     const mainContext = this._mainWorkContext();

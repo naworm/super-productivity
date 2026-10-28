@@ -9,6 +9,7 @@ export { HabitPageComponent } from '../pages/habit-page/habit-page.component';
 export { DonatePageComponent } from '../pages/donate-page/donate-page.component';
 export { ContrastTestComponent } from '../pages/contrast-test/contrast-test.component';
 export { PluginIndexComponent } from '../plugins/ui/plugin-index/plugin-index.component';
+export { FocusModePageComponent } from '../features/focus-mode/focus-mode-page/focus-mode-page.component';
 // Dialogs opened from always-rendered header buttons. Importing them through
 // this (preloaded) barrel keeps their code in the existing pages chunk; a
 // separate dynamic import would split shared deps into extra startup chunks.

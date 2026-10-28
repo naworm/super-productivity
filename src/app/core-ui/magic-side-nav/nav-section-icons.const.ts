@@ -1,6 +1,7 @@
 // Icons of the app's own (non-work-context) sections. Shared by the side nav
 // and the main header title so the same section reads identically in both.
 export const NAV_SECTION_ICON = {
+  FOCUS_MODE: 'center_focus_strong',
   PLANNER: 'edit_calendar',
   SCHEDULE: 'schedule',
   BOARDS: 'grid_view',

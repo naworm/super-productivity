@@ -7,7 +7,7 @@ import {
 import { initialGlobalConfigState } from './store/global-config.reducer';
 
 describe('NEW_INSTALL_APP_FEATURES', () => {
-  it('starts calm: tasks, planner and time tracking, without the extras', () => {
+  it('starts with core features including focus mode, without the extras', () => {
     expect(NEW_INSTALL_APP_FEATURES).toEqual({
       ...DEFAULT_GLOBAL_CONFIG.appFeatures,
       isTimeTrackingEnabled: true,
@@ -22,7 +22,7 @@ describe('NEW_INSTALL_APP_FEATURES', () => {
       isHabitsEnabled: false,
       isIssuesPanelEnabled: false,
       isFinishDayEnabled: false,
-      isFocusModeEnabled: false,
+      isFocusModeEnabled: true,
     });
   });
 
